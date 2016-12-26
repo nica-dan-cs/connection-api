@@ -4,8 +4,6 @@
 #include <pthread.h>
 #include <poll.h>
 
-// /void __await_multiple_connections(void* input);
-
 class connection_t{
     private:
         int socket_fd;
