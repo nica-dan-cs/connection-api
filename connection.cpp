@@ -1,5 +1,10 @@
 #include "connection.h"
 
+connection_t::~connection_t(){
+    if(socket_fd >= 0)
+        close(socket_fd);
+}
+
 bool connection_t::is_connected(){
     return am_i_connected;
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <pthread.h>
@@ -6,11 +7,13 @@
 
 class connection_t{
     private:
-        int socket_fd;
+        int socket_fd = -1;
         bool am_i_connected = false;
         bool create_socket(int* file_descriptor);
 
     public:
+        ~connection_t();
+
         bool is_connected();
         void assign_connected_fd(int assigned_fd);
 
